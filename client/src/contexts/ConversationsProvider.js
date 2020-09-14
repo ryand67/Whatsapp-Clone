@@ -10,7 +10,7 @@ export function useConversations() {
 export function ConversationsProvider({ children }) {
     const [conversations, setConversations] = useLocalStorage('conversations', []);
 
-    const createConversations = (recipients) => {
+    function createConversations(recipients) {
         setConversations(prevConversations => {
             return [...prevConversations, { recipients, messages: [] }]
         })
